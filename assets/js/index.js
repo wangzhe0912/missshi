@@ -1,12 +1,15 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
-var Hello = React.createClass ({
-    render: function() {
-        return (
-            <h1>
-            Hello, React! My Name is wangzhe!
-            </h1>
-        )
-    }
-})
-ReactDOM.render(<Hello />, document.getElementById('container'))
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Button } from 'antd';
+// import './App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Button type="primary">Button</Button>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<App />, document.getElementById('container'))

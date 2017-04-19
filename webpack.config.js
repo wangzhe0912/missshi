@@ -41,7 +41,10 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     //specify that we will be dealing with React code
-                    presets: ['react']
+                    presets: ['react'],
+                    plugins: [
+                      ['import', [{ libraryName: "antd", style: 'css' }]],
+                    ]
                 }
             },
             // the next regex tells webpack to use style-loader and css-loader
@@ -49,7 +52,7 @@ module.exports = {
             // on all css files
             {
                 test: /\.css$/,
-                use: 'style-loader!css-loader'
+                loader: 'style-loader!css-loader'
             },
             {
                 test: /\.png$/,
@@ -86,6 +89,6 @@ module.exports = {
         //tells webpack where to look for modules
         modules: ['node_modules'],
         //extensions that should be used to resolve modules
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.css'],
     }
 };
