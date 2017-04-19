@@ -10,6 +10,8 @@ import sys
 import math
 import time
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import os
+
 
 
 def gene_text(number):
@@ -39,11 +41,11 @@ def gene_code(number=6, width=100, height=30):
     bgcolor = (255,255,255)
     image = Image.new('RGBA', (width, height), bgcolor)
     draw = ImageDraw.Draw(image)
-    font_path = './missshi/blog_system/util/TimesNewRoman.ttf'
+    font_path = 'blog_system/util/TimesNewRoman.ttf'
     font = ImageFont.truetype(font_path, 25)
     #填充自付出啊
     font_width, font_height = font.getsize(text)
-    fontcolor = (0,0,255)
+    fontcolor = (0, 0, 255)
     size = ((width - font_width) / number, (height - font_height) / number)
     draw.text(size, text, font= font, fill=fontcolor)
     #添加划线
@@ -53,7 +55,7 @@ def gene_code(number=6, width=100, height=30):
     image = image.transform(new_size, Image.AFFINE, (1, -0.3, 0, -0.1 , 1, 0), Image.BILINEAR) 
     image = image.filter(ImageFilter.EDGE_ENHANCE_MORE)
     filename = str(time.time()).replace(".", "") + ".png"
-    image.save('./missshi/blog_system/valid_picture/' + filename)
+    image.save('blog_system/valid_picture/' + filename)
     return text, filename
 
 

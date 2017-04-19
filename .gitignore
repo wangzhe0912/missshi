@@ -2,3 +2,4 @@ settings.py
 *.pyc
 blog_system/valid_picture/*.png
 blog_system/migrations/*
+node_modules/*
