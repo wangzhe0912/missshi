@@ -8,6 +8,6 @@ router = DefaultRouter()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^api/', include('blog_system.urls')),
+    url(r'^', TemplateView.as_view(template_name='index.html')),
 ]

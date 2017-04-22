@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from 'antd';
-// import './App.css';
+import {
+  browserHistory,
+  Router,
+  Route,
+  Link,
+} from 'react-router';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Button type="primary">Button</Button>
-      </div>
-    );
-  }
-}
-ReactDOM.render(<App />, document.getElementById('container'))
+import Homepage from './homepage';
+import Login from './login';
+import './index.css';
+
+ReactDOM.render((
+  <Router history={browserHistory}>
+    <Route path="/" component={Homepage}>
+      <Route path="login" component={Login} />
+    </Route>
+  </Router>
+), document.getElementById('container'))
