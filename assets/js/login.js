@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
 const FormItem = Form.Item;
 
 class NormalLoginForm extends Component {
@@ -13,8 +14,21 @@ class NormalLoginForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        $.post({
+          url: '/api/login/',
+          data: values,
+          dataType: 'json',
+          success: function(data) {
+            console.log(data);
+            browserHistory.push('/')
+          }.bind(this),
+          error: function(xhr, status, err) {
+            console.log(xhr);
+            console.log(err);
+            alert(xhr.responseText);
+          }.bind(this)
+        });
         console.log('Received values of form: ', values);
-        alert(values);
       }
     });
   }

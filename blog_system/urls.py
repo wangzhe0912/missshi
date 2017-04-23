@@ -12,6 +12,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     url(r'^regist/$', login_views.get_valid_picture),
+    url(r'^login/$', login_views.login),
     url(r'^obtain-auth-token/$', obtain_auth_token),
 ]
 
