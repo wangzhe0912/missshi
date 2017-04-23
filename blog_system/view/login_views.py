@@ -37,7 +37,7 @@ def login(request):
     #登录
     """
     if request.method == 'POST':
-        user_name = request.data["userName"]
+        user_name = request.data["username"]
         pwd = request.data["password"]
         password = []
         try:

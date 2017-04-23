@@ -12,6 +12,7 @@ import Login from './login';
 import RetrivePwd from './retrive_pwd';
 import Signup from './signup';
 import Search from './search';
+import Person from './person';
 import App from './app';
 import LoginValid from './login_valid';
 import auth from './auth';
@@ -21,7 +22,7 @@ function requireAuth(nextState, replace) {
     if (!auth.loggedIn()) {
         replace({
             pathname:'/app/login/',
-            state: {nextPathname: '/app/'}
+            state: {nextPathname: '/'}
         })
     }
 }
@@ -35,6 +36,7 @@ ReactDOM.render((
       <Route path="retrive_pwd" component={RetrivePwd} />
       <Route path="signup" component={Signup} />
       <Route path="search" component={Search} />
+      <Route path="person" component={Person} onEnter={requireAuth} />
     </Route>
   </Router>
 ), document.getElementById('container'))

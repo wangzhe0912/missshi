@@ -19,22 +19,11 @@ class NormalLoginForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        auth.login(value.userName, value.password, (loggedIn) => {
+        auth.login(values.username, values.password, (loggedIn) => {
             if (loggedIn) {
-                this.context.router.replace('/app/')
+                browserHistory.push('/')
             }
         })
-        $.post({
-          url: '/api/login/',
-          data: values,
-          dataType: 'json',
-          success: function(data) {
-            browserHistory.push('/')
-          }.bind(this),
-          error: function(xhr, status, err) {
-            alert(xhr.responseText);
-          }.bind(this)
-        });
       }
     });
   }
@@ -45,8 +34,8 @@ class NormalLoginForm extends Component {
       <div style={{"margin-left": "auto", "margin-right": "auto"}}>
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: '请输入用户名或邮箱' }],
+          {getFieldDecorator('username', {
+            rules: [{ required: true, message: '请输入用户名' }],
           })(
             <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="用户名或邮箱" />
           )}

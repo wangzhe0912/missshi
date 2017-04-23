@@ -14,7 +14,7 @@ module.exports = React.createClass({
 
         auth.login(username, pass, (loggedIn) => {
             if (loggedIn) {
-                this.context.router.replace('/app/')
+                browserHistory.push('/app/')
             }
         })
     },
