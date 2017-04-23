@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Link } from 'react-router';
 const FormItem = Form.Item;
 
 class NormalLoginForm extends Component {
+  constructor(props){
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        alert(values);
       }
     });
   }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
@@ -18,9 +26,9 @@ class NormalLoginForm extends Component {
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
           {getFieldDecorator('userName', {
-            rules: [{ required: true, message: '请输入用户名' }],
+            rules: [{ required: true, message: '请输入用户名或邮箱' }],
           })(
-            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="用户名" />
+            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="用户名或邮箱" />
           )}
         </FormItem>
         <FormItem>
@@ -37,11 +45,12 @@ class NormalLoginForm extends Component {
           })(
             <Checkbox>记住密码</Checkbox>
           )}
-          <a className="login-form-forgot" href="">找回密码</a>
+          <span className="login-form-forgot"><Link to="/retrive_pwd">找回密码</Link></span>
           <Button type="primary" htmlType="submit" className="login-form-button">
             登录
           </Button>
-          Or <a href="">注册</a>
+          Or
+          <Link to="/signup">注册</Link>
         </FormItem>
       </Form>
       </div>

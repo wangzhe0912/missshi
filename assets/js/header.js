@@ -24,9 +24,10 @@ class HeaderConponent extends Component {
         style={{ lineHeight: '64px'}}
       >
         <Menu.Item key="SignIn"><Link to="/login">登录</Link></Menu.Item>
-        <Menu.Item key="Search">搜索</Menu.Item>
-        <Menu.Item key="Notice">通知</Menu.Item>
-        <Menu.Item key="Person">个人主页</Menu.Item>
+        <Menu.Item key="Search"><Link to="/search">搜索</Link></Menu.Item>
+        <Menu.Item key="Notice"><Link to="/notice">通知</Link></Menu.Item>
+        <Menu.Item key="Person"><Link to="/person">个人主页</Link></Menu.Item>
+        <Menu.Item key="NewBlog"><Link to="/new_blog">写博客</Link></Menu.Item>
       </Menu>
       </div>
       </div>

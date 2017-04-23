@@ -2,7 +2,6 @@
 """
 #关于用户注册、登录的相关views
 """
-from __future__ import unicode_literals
 from rest_framework import status
 from rest_framework import  renderers
 from rest_framework.decorators import api_view

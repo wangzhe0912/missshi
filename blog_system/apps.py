@@ -6,3 +6,5 @@ from django.apps import AppConfig
 
 class BlogSystemConfig(AppConfig):
     name = 'blog_system'
+    def ready(self):
+        from util import signals

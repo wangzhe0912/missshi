@@ -20,3 +20,15 @@
 .login-form-button {
   width: 100%;
 }
+
+.signup-form{
+  max-width: 800px;
+  margin: auto;
+}
+
+.ant-advanced-search-form {
+  padding: 24px;
+  background: #fbfbfb;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+}

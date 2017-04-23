@@ -20,4 +20,10 @@ class SignUpValidSerializer(serializers.Serializer):
         #将数据保存为一条记录
         """
         return SignupValid.objects.create(**validated_data)
+    
+class UserSerializer(serializers.Serializer):
+    """
+    #涉及用户相关序列
+    """
+    pass
         
