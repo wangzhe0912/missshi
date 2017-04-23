@@ -4,7 +4,7 @@
 """
 from rest_framework import serializers
 from blog_system.model.user_login_models import SignupValid
-from blog_system.model.user_login_models import UserLogin
+from django.contrib.auth.models import User
         
 class SignUpValidSerializer(serializers.Serializer):
     """
@@ -25,12 +25,8 @@ class UserSerializer(serializers.ModelSerializer):
     """
     #涉及用户相关序列
     """
-#     id = serializers.IntegerField(read_only=True)
-#     username = serializers.CharField(max_length=100)
-#     email = serializers.EmailField()
-#     password = serializers.CharField()
     class Meta:
-        model = UserLogin
-        fields = ('id', 'name', 'email', 'password')
+        model = User
+        fields = ('id', 'username', 'email', 'password')
     
         

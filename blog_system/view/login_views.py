@@ -11,7 +11,7 @@ from rest_framework.reverse import reverse
 
 from blog_system.util import get_valid_picure
 from blog_system.manager.user_login_manager import SignUpValidSerializer, UserSerializer
-from blog_system.model.user_login_models import UserLogin
+from django.contrib.auth.models import User
 
 @api_view(['GET'])
 def get_valid_picture(request):
@@ -24,7 +24,10 @@ def get_valid_picture(request):
         serializer = SignUpValidSerializer(data=dict_data)
         if serializer.is_valid():
             serializer.save()
+            data = serializer.data
+            return Response(data={"picture_route": data["picture_route"]}, status=status.HTTP_200_OK)
         else:
+            
             return Response(data=serializer.data, status=status.HTTP_404_NOT_FOUND)
     return Response(data=serializer.data, status=status.HTTP_200_OK)
 
@@ -38,20 +41,18 @@ def login(request):
         pwd = request.data["password"]
         password = []
         try:
-            users = UserLogin.objects.get(name=user_name)
+            users = User.objects.get(username=user_name)
             password.append({"user":user_name, "password": users.password, "id": users.id})
         except:
             pass
         try:
-            users = UserLogin.objects.get(email=user_name)
+            users = User.objects.get(email=user_name)
             password.append({"email":user_name, "password": users.password, "id": users.id})
         except:
             pass
         label = 0
         result = ''
-        print password
         if password == []:
-            print "123"
             result = 'no username'
         else:
             for element in password:

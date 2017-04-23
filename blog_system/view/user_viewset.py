@@ -6,12 +6,12 @@ Created on 2017年4月23日
 """
 from rest_framework import viewsets
 from rest_framework.response import Response
-from blog_system.model.user_login_model import UserLogin
+from django.contrib.auth.models import User
 from blog_system.manager.user_login_manager import UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = UserLogin.objects.all()
+    queryset = User.objects.all()
     serializer_class = UserSerializer
 
     def retrieve(self, request, pk=None):

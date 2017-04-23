@@ -2,33 +2,39 @@ import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
+
+var auth = require('./auth')
 const FormItem = Form.Item;
 
 class NormalLoginForm extends Component {
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.contextTypes = {
+        router: React.PropTypes.object.isRequired
+    };
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        auth.login(value.userName, value.password, (loggedIn) => {
+            if (loggedIn) {
+                this.context.router.replace('/app/')
+            }
+        })
         $.post({
           url: '/api/login/',
           data: values,
           dataType: 'json',
           success: function(data) {
-            console.log(data);
             browserHistory.push('/')
           }.bind(this),
           error: function(xhr, status, err) {
-            console.log(xhr);
-            console.log(err);
             alert(xhr.responseText);
           }.bind(this)
         });
-        console.log('Received values of form: ', values);
       }
     });
   }
