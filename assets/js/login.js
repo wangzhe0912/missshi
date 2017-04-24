@@ -6,13 +6,14 @@ import { browserHistory } from 'react-router';
 var auth = require('./auth')
 const FormItem = Form.Item;
 
+const contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
+
 class NormalLoginForm extends Component {
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.contextTypes = {
-        router: React.PropTypes.object.isRequired
-    };
   }
 
   handleSubmit(e) {
@@ -66,7 +67,7 @@ class NormalLoginForm extends Component {
     );
   }
 }
-
+NormalLoginForm.contextTypes = contextTypes;
 const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
 class Login extends Component{

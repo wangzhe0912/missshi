@@ -29248,13 +29248,14 @@ const { Header, Content, Footer } = __WEBPACK_IMPORTED_MODULE_1_antd_lib_layout_
 
 var auth = __webpack_require__(47);
 
+const contextTypes = {
+  router: __WEBPACK_IMPORTED_MODULE_2_react___default.a.PropTypes.object.isRequired
+};
+
 class Homepage extends __WEBPACK_IMPORTED_MODULE_2_react__["Component"] {
   constructor(props) {
     super(props);
     this.state = { user: [] };
-    this.contextTypes = {
-      router: __WEBPACK_IMPORTED_MODULE_2_react___default.a.PropTypes.object.isRequired
-    };
     this.componentDidMount = this.componentDidMount.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
     this.loadUserData = this.loadUserData.bind(this);
@@ -29324,7 +29325,7 @@ class Homepage extends __WEBPACK_IMPORTED_MODULE_2_react__["Component"] {
     );
   }
 }
-
+Homepage.contextTypes = contextTypes;
 /* harmony default export */ __webpack_exports__["a"] = (Homepage);
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(82)))
 
@@ -29375,13 +29376,14 @@ class Homepage extends __WEBPACK_IMPORTED_MODULE_2_react__["Component"] {
 var auth = __webpack_require__(47);
 const FormItem = __WEBPACK_IMPORTED_MODULE_9_antd_lib_form___default.a.Item;
 
+const contextTypes = {
+  router: __WEBPACK_IMPORTED_MODULE_10_react___default.a.PropTypes.object.isRequired
+};
+
 class NormalLoginForm extends __WEBPACK_IMPORTED_MODULE_10_react__["Component"] {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.contextTypes = {
-      router: __WEBPACK_IMPORTED_MODULE_10_react___default.a.PropTypes.object.isRequired
-    };
   }
 
   handleSubmit(e) {
@@ -29455,7 +29457,7 @@ class NormalLoginForm extends __WEBPACK_IMPORTED_MODULE_10_react__["Component"] 
     );
   }
 }
-
+NormalLoginForm.contextTypes = contextTypes;
 const WrappedNormalLoginForm = __WEBPACK_IMPORTED_MODULE_9_antd_lib_form___default.a.create()(NormalLoginForm);
 
 class Login extends __WEBPACK_IMPORTED_MODULE_10_react__["Component"] {

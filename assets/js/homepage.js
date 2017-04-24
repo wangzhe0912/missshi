@@ -6,13 +6,14 @@ import HeaderConponent from './header.js';
 import { browserHistory } from 'react-router';
 var auth = require('./auth');
 
+const contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
+
 class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {user:[]};
-    this.contextTypes = {
-        router: React.PropTypes.object.isRequired
-    };
     this.componentDidMount = this.componentDidMount.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
     this.loadUserData = this.loadUserData.bind(this);
@@ -63,5 +64,5 @@ class Homepage extends Component {
     );
   }
 }
-
+Homepage.contextTypes = contextTypes;
 export default Homepage;
