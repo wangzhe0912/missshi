@@ -25,7 +25,7 @@ class Homepage extends Component {
 
   logoutHandler() {
     auth.logout();
-    browserHistory.push('/app/login/');
+    browserHistory.push('/login/');
   }
 
   loadUserData() {
