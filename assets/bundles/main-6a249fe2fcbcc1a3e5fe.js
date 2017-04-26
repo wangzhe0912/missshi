@@ -36360,8 +36360,8 @@ var store = (0, _redux.applyMiddleware)(_reduxThunk2.default, (0, _reduxPromiseM
 function requireAuth(nextState, replace) {
   if (!_auth2.default.loggedIn()) {
     replace({
-      pathname: '/app/login/', //原始路径
-      state: { nextPathname: '/' } //跳转后位置
+      pathname: '/login/', //原始路径
+      state: { nextPathname: '/person' } //跳转后位置
     });
   }
 }

@@ -30,8 +30,8 @@ const store = applyMiddleware(
 function requireAuth(nextState, replace) {
     if (!auth.loggedIn()) {
         replace({
-            pathname:'/app/login/',  //原始路径
-            state: {nextPathname: '/'}  //跳转后位置
+            pathname:'/login/',  //如果没有登录，则跳转至该位置
+            state: {nextPathname: '/'}  //期望是登录后跳转的位置
         })
     }
 }
