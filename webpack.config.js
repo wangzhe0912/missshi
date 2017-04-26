@@ -41,7 +41,7 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     //specify that we will be dealing with React code
-                    presets: ['react'],
+                    presets: ['react', 'stage-0', 'es2015'],
                     plugins: [
                       ['import', [{ libraryName: "antd", style: 'css' }]],
                     ]
